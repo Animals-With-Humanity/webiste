@@ -81,7 +81,7 @@ html,body{
 }
 #page1 h2{
     color: white;
-    font-size: 3.6vw;
+    font-size: 1.6vw;
     position: relative;
     left: 4%;
     font-weight: 750;
@@ -533,13 +533,10 @@ html,body{
     transform: translateY(-180%);
     font-size: 4vw;
 }
-#page1 #logoimg {
-    position: absolute;
-    width: 20vw;
-    top: 10vh;
-    right: 50px;
-    padding: 35px 35px 35px 35px;
-    background-color: white;
+#page1 #logoimg{
+    width: 30vw;
+    top: 9.5vh;
+    right: 3vw
 }
 #page2{
     background-position-x: 70%;
