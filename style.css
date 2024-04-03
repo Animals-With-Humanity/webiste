@@ -155,11 +155,14 @@ html,body{
     transform: translateY(-40%);
     z-index: 99999;
 }
-#page1 #logoimg{
+#page1 #logoimg {
     position: absolute;
     width: 20vw;
     top: 10vh;
     right: 50px;
+    padding: 35px 35px 35px 35px;
+    color: #3103ff;
+    background-color: white;
 }
 #page2{
     width: 100%;
