@@ -73,8 +73,15 @@ html,body{
     font-size: 5.3vw;
     font-weight: 750;
     /* letter-spacing: -3px; */
+    text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px  0 #000000,
+    1px 1px  0 #000000,
+    -1px 1px  0 #000000,
+    1px -1px  0 #000000,
+    1px -1px  0 #000000;
     line-height: 1;
-    color: white;
+    color: rgb(255, 255, 255);
     position: relative;
     left: 4%;
     margin: 45px 0px;
@@ -85,6 +92,13 @@ html,body{
     position: relative;
     left: 4%;
     font-weight: 750;
+    text-shadow:
+    1px 1px 0 #000000,
+    -1px -1px  0 #000000,
+    1px 1px  0 #000000,
+    -1px 1px  0 #000000,
+    1px -1px  0 #000000,
+    1px -1px  0 #000000;
     /* margin-bottom: 20px; */
 }
 
