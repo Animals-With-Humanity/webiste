@@ -215,16 +215,18 @@ body {
   /* justify-content: space-around; */
 }
 #page3left {
-  width: 15%;
-  color: #fbf309;
+  margin:  -50px;
+  width: 0%;
+  color: #ffffff;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+
 }
 #page3left h1 {
-  font-size: 4vw;
+  font-size: 7vw;
   font-weight: 900;
   line-height: 1;
 }
