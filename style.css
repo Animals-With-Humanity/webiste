@@ -252,14 +252,19 @@ body {
   position: relative;
 }
 #page3right h3 {
-  margin-top: 90px;
   width: 75%;
   font-size: 2vw;
 }
 #page3right h4{
-  margin-top: 90px;
   width: 75%;
-  font-size: 2vw;
+  font-size: 2.5vw;
+}
+
+#page3right h5{
+  width: 75%;
+  font-size: 10vw;
+  text-align: left;
+  color: #fbf309;
 }
 
 #page3 {
