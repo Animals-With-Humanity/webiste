@@ -252,9 +252,14 @@ body {
   position: relative;
 }
 #page3right h3 {
-  margin-top: 40px;
+  margin-top: 90px;
   width: 75%;
-  font-size: 1.6vw;
+  font-size: 2vw;
+}
+#page3right h4{
+  margin-top: 90px;
+  width: 75%;
+  font-size: 2vw;
 }
 
 #page3 {
