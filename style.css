@@ -226,10 +226,18 @@ body {
 
 }
 #page3left h1 {
-  font-size: 7vw;
+  font-size: 9vw;
   font-weight: 900;
   line-height: 1;
 }
+
+#page3left img {
+  display: inline;
+  width: 151px;
+  margin: 17.5vw 0vw 0vw -10vw;
+  height: 115px;
+}
+
 #page3right {
   width: 80%;
   height: 100%;
