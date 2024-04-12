@@ -33,6 +33,7 @@ body {
   z-index: 99;
   position: relative;
   border-radius: 10px;
+  font-size: 1.3vw;
 }
 #logo {
   width: 6vw;
@@ -509,6 +510,7 @@ body {
   }
 
   #page1 h1 {
+    font-family: Lucida Sans;
     width: 85%;
     font-size: 14vw;
     font-weight: 800;
