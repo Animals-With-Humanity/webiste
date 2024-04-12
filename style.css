@@ -32,6 +32,7 @@ body {
   padding: 10px;
   z-index: 99;
   position: relative;
+  border-radius: 10px;
 }
 #logo {
   width: 6vw;
@@ -72,7 +73,7 @@ body {
   font-weight: 750;
   /* letter-spacing: -3px; */
   text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px 1px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000, 1px -1px 0 #000000;
-  line-height: 1;
+  line-height: 1.2;
   color: rgb(255, 255, 255);
   position: relative;
   left: 4%;
@@ -85,7 +86,7 @@ body {
   left: 4%;
   font-weight: 750;
   text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px 1px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000, 1px -1px 0 #000000;
-  /* margin-bottom: 20px; */
+  margin: -3vw 0vw 0vw 0vw;
 }
 
 #firstbut {
@@ -156,13 +157,14 @@ body {
 }
 #page1 #logoimg {
   position: absolute;
-  width: 20vw;
-  top: 10vh;
-  right: 50px;
-  padding: 35px 35px 35px 35px;
+  width: 17vw;
+  top: 9vh;
+  right: 141px;
+  padding: 25px 25px 25px 25px;
   color: #3103ff;
   background-color: white;
-}
+  border-radius: 19px;
+} 
 #page2 {
   width: 100%;
   min-height: 100vh;
