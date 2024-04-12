@@ -63,6 +63,11 @@ body {
   padding: 5px 40px;
   font-weight: 600;
 }
+#links a:hover{
+  transition: all ease 0.3s;
+  color: #ffffff;
+  background: #000;
+}
 #links a:nth-child(2) {
   border-left: 2px solid black;
   border-right: 2px solid black;
