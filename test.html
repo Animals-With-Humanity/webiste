@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-Scrolling Gallery (Stop on Hover)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .gallery-wrapper {
+      width: 80%;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #ccc;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      animation: scroll 20s linear infinite;
+    }
+
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 250px;
+      height: 200px;
+      margin: 0 10px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #333;
+    }
+
+    /* Keyframes for auto-scrolling effect */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Clone gallery to make infinite scroll */
+    .gallery:after {
+      content: '';
+      display: block;
+      width: 100%;
+    }
+    .gallery-item:hover{
+        background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-wrapper">
+    <div class="gallery">
+      <!-- Add multiple containers as gallery items -->
+      <div class="gallery-item">Item 1</div>
+      <div class="gallery-item">Item 2</div>
+      <div class="gallery-item">Item 3</div>
+      <div class="gallery-item">Item 4</div>
+      <div class="gallery-item">Item 5</div>
+      <div class="gallery-item">Item 6</div>
+      <div class="gallery-item">Item 7</div>
+      <div class="gallery-item">Item 8</div>
+    </div>
+  </div>
+
+  <script>
+    const gallery = document.querySelector('.gallery');
+
+    // Stop scroll on hover
+    gallery.addEventListener('mouseover', () => {
+      gallery.style.animationPlayState = 'paused';
+    });
+
+    // Resume scroll when mouse leaves
+    gallery.addEventListener('mouseout', () => {
+      gallery.style.animationPlayState = 'running';
+    });
+  </script>
+
+</body>
+</html>
