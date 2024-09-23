@@ -130,14 +130,14 @@ body {
 #firstbut > #more > h3 {
   transform: translateY(49%);
   transition: all ease 0.3s;
-  color: rgb(0, 0, 0);
+  color: rgb(255 255 255);
   font-size: 1.1vw;
   font-weight: 600;
 }
 #firstbut > #more > h4 {
   transform: translateY(-155%);
   transition: all ease 0.3s;
-  color: rgb(255, 255, 255);
+  color: #03d2ff;
   font-size: 1.2vw;
   font-weight: 500;
 }
