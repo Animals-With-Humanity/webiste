@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #ff7300;
+            background-color: #ff7300
         }
         .adopt-button {
             margin-top: 10px;
@@ -79,11 +79,52 @@
             right: 10px;
             z-index: 99;
         }
+        .loader {
+            margin-top: 15%;
+            position: absolute;
+            width: 96px;
+            box-sizing: content-box;
+            height: 48px;
+            background: #FFF;
+            border-color: #5f4230;
+            border-style: solid;
+            border-width: 2px 2px 50px 2px;
+            border-radius: 100%;
+            animation: 3s yinYang linear infinite;
+          }
+          .loader:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background: #FFF;
+            border: 18px solid #5f4230;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+            box-sizing: content-box;
+          }
+          .loader:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #5f4230;
+            border: 18px solid #FFF;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+            box-sizing: content-box;
+          }
+          @keyframes yinYang {
+            100%{transform: rotate(360deg)}
+          }
     </style>
 </head>
 <body>
     <h1>Available Animals</h1>
-    <div class="carousel-container">
+    <div id="loader" class="loader"></div>
+    <div id="carousel-container" class="carousel-container">
         <button class="carousel-button left" onclick="prevSlide()">❮</button>
         <button class="carousel-button right" onclick="nextSlide()">❯</button>
         <div id="carousel-slides"></div>
@@ -91,37 +132,47 @@
     <pre id="animal-details"></pre>
     <script>
         let currentIndex = 0;
-        let animals = [];
+        let availableAnimals = [];
 
         async function fetchAnimals() {
+            document.getElementById('loader').style.display = 'flex'; // Show loader
+            document.getElementById('carousel-container').style.display = 'none';
             try {
                 const response = await fetch('https://adoption-management.vercel.app/animals/animals/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                animals = await response.json();
-                displayCarouselSlide(currentIndex);
+                const data = await response.json();
+                availableAnimals = data.filter(animal => animal.avaliable);
+                if (availableAnimals.length > 0) {
+                    displayCarouselSlide(currentIndex);
+                } else {
+                    document.getElementById('carousel-slides').innerHTML = "<p>No available animals at the moment.</p>";
+                }
             } catch (error) {
                 console.error('Error fetching animals:', error);
+            } finally {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('carousel-container').style.display = 'block'; // Hide loader after fetching
             }
         }
+
+
 
         function displayCarouselSlide(index) {
             const slidesContainer = document.getElementById('carousel-slides');
             slidesContainer.innerHTML = '';
 
-            const animal = animals[index];
+            const animal = availableAnimals[index];
             const slideDiv = document.createElement('div');
             slideDiv.className = 'carousel-slide';
             slideDiv.style.backgroundImage = `url('photos/${animal.photos}')`;
 
-            // Create the overlay div for text
             const overlayDiv = document.createElement('div');
             overlayDiv.className = 'carousel-overlay';
             overlayDiv.innerHTML = `
                 <h2>Tag ID: ${animal.tag_id}</h2>
                 <p>Type: ${animal.animal_type}</p>
-                <p>Available: ${animal.avaliable ? 'Yes' : 'No'}</p>
                 <button class="adopt-button" onclick="fetchAnimalsbyID('${animal.tag_id}')">Adopt Now</button>
             `;
 
@@ -142,14 +193,15 @@
             }
         }
         function nextSlide() {
-            currentIndex = (currentIndex + 1) % animals.length;
+            currentIndex = (currentIndex + 1) % availableAnimals.length;
             displayCarouselSlide(currentIndex);
         }
 
         function prevSlide() {
-            currentIndex = (currentIndex - 1 + animals.length) % animals.length;
+            currentIndex = (currentIndex - 1 + availableAnimals.length) % availableAnimals.length;
             displayCarouselSlide(currentIndex);
         }
+
 
         window.onload = fetchAnimals;
     </script>
