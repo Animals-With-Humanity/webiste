@@ -78,7 +78,7 @@
         <button class="carousel-button right" onclick="nextSlide()">❯</button>
         <div id="carousel-slides"></div>
     </div>
-
+    <pre id="animal-details"></pre>
     <script>
         let currentIndex = 0;
         let animals = [];
@@ -112,12 +112,25 @@
                 <h2>Tag ID: ${animal.tag_id}</h2>
                 <p>Type: ${animal.animal_type}</p>
                 <p>Available: ${animal.avaliable ? 'Yes' : 'No'}</p>
+                <button class="adopt-button" onclick="fetchAnimalsbyID('${animal.tag_id}')">Adopt Now</button>
             `;
 
             slideDiv.appendChild(overlayDiv);
             slidesContainer.appendChild(slideDiv);
         }
-
+        async function fetchAnimalsbyID(tag_id) {
+            try {
+                const response = await fetch(`https://adoption-management.vercel.app/animals/animals/${tag_id}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log(data);
+                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="photos/${data.photos}" hight=200px width=200px></img>`
+            } catch (error) {
+                console.error('Error fetching animal data:', error);
+            }
+        }
         function nextSlide() {
             currentIndex = (currentIndex + 1) % animals.length;
             displayCarouselSlide(currentIndex);
