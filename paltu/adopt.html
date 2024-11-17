@@ -135,45 +135,30 @@
 <pre id="animal-details"></pre>
     <script>
         let currentIndex = 0;
-let availableAnimals = [];
+        let availableAnimals = [];
 
-async function fetchAnimals() {
-    const loader = document.getElementById('loader');
-    const mainContent = document.getElementById('main');
-    const carouselSlides = document.getElementById('carousel-slides');
-
-    // Show loader and hide main content
-    loader.style.display = 'flex';
-    mainContent.style.display = 'none';
-
-    try {
-        const response = await fetch('https://adoption-management.vercel.app/animals/animals/', { cache: 'no-store' }); // Disable cache for fresh data
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        // Filter only available animals once
-        availableAnimals = data.filter(({ avaliable }) => avaliable);
-
-        // Update the carousel slides
-        if (availableAnimals.length) {
-            displayCarouselSlide(currentIndex);
-        } else {
-            carouselSlides.innerHTML = "<p>No available animals at the moment.</p>";
-        }
-    } catch (error) {
-        console.error('Error fetching animals:', error);
-    } finally {
-        // Hide loader and show main content
-        loader.style.display = 'none';
-        mainContent.style.display = 'block';
-    }
-}
-
-
-
+        async function fetchAnimals() {
+            document.getElementById('loader').style.display = 'relative'; // Show loader
+            document.getElementById('main').style.display = 'none';
+            try {
+                const response = await fetch('https://adoption-management.vercel.app/animals/animals/');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                availableAnimals = data.filter(animal => animal.avaliable);
+                if (availableAnimals.length > 0) {
+                    displayCarouselSlide(currentIndex);
+                } else {
+                    document.getElementById('carousel-slides').innerHTML = "<p>No available animals at the moment.</p>";
+                }
+            } catch (error) {
+                console.error('Error fetching animals:', error);
+            } finally {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main').style.display = 'block'; // Hide loader after fetching
+            }
+            }
 
         function displayCarouselSlide(index) {
             const slidesContainer = document.getElementById('carousel-slides');
