@@ -95,62 +95,34 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url("BG.png");
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Ensure it overlays other content */
+    overflow: hidden; /* Prevent content overflow */
 }
 
-/* Inner loader styling */
-.loader {
-    width: 96px;
-    height: 48px;
-    background: #FFF;
-    border-color: #5f4230;
-    border-style: solid;
-    border-width: 2px 2px 50px 2px;
-    border-radius: 100%;
-    animation: 3s yinYang linear infinite;
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%); /* Center the video */
+    z-index: -1; /* Place the video behind the loader content */
+    object-fit: cover; /* Ensures the video covers the container */
 }
-          .loader:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            background: #FFF;
-            border: 18px solid #5f4230;
-            border-radius: 100%;
-            width: 12px;
-            height: 12px;
-            box-sizing: content-box;
-          }
-          .loader:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background: #5f4230;
-            border: 18px solid #FFF;
-            border-radius: 100%;
-            width: 12px;
-            height: 12px;
-            box-sizing: content-box;
-          }
-          @keyframes yinYang {
-            100%{transform: rotate(360deg)}
-          }
 
-          #animal-details{
-            margin: 10vh;
-          }
-    </style>
+</style>
 </head>
 <body>
     <div id="loader">
-    <div class="loader"></div>
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="bg.mp4" type="video/mp4">
+            <img scr="BG.png">
+        </video>
     </div>
     <div id="main">
     <h1>Available Animals</h1>
