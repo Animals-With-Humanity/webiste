@@ -138,24 +138,23 @@
         let currentIndex = 0;
         let availableAnimals = [];
         document.addEventListener('DOMContentLoaded', () => {
-    const videoSource = document.getElementById('video-source');
-    
-    // Function to detect if the device is mobile
-    function isMobile() {
-        return /Mobi|Android/i.test(navigator.userAgent);
-    }
+        const videoSource = document.getElementById('video-source');
+            
+        // Function to detect if the device is mobile
+        function isMobile() {
+                return /Mobi|Android/i.test(navigator.userAgent);
+        }
+            // Set the video source based on device type
+            if (isMobile()) {
+                videoSource.src = 'bg.mp4'; // Path to the mobile video
+            } else {
+                videoSource.src = 'BG.png'; // Path to the laptop video
+            }
 
-    // Set the video source based on device type
-    if (isMobile()) {
-        videoSource.src = 'bg.mp4'; // Path to the mobile video
-    } else {
-        videoSource.src = 'BG.png'; // Path to the laptop video
-    }
-
-    // Reload the video to apply the source
-    const bgVideo = document.getElementById('bg-video');
-    bgVideo.load();
-});
+            // Reload the video to apply the source
+            const bgVideo = document.getElementById('bg-video');
+            bgVideo.load();
+        });
 
         async function fetchAnimals() {
             document.getElementById('loader').style.display = 'relative'; // Show loader
