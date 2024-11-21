@@ -180,6 +180,9 @@ body {
   position: relative;
   overflow: hidden;
 }
+#page2 p{
+  font-size:2vw
+}
 #page2 #blur {
   width: 100%;
   min-height: 100vh;
@@ -545,7 +548,13 @@ body {
     padding: 15px 10px;
     background-color: rgba(3, 209, 255, 0.7);
   }
-
+  #page2 h1 {
+    font-size:16vw;
+    text-align:left;
+  }
+  #page2 p {
+    font-size:6vw;
+  }
   #page31 {
     padding: 0 10px 0 40px;
   }
