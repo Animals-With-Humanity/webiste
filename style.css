@@ -181,7 +181,11 @@ body {
   overflow: hidden;
 }
 #page2 p{
-  font-size:2vw
+  font-size:2vw;
+  margin-left: 15vw;
+}
+.about-info-box p {
+  margin-top: -10vh;
 }
 #page2 #blur {
   width: 100%;
