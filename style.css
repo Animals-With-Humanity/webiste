@@ -500,7 +500,7 @@ body {
 #social i {
   font-size: 2vw;
 }
-@media (max-width: 550px) {
+@media (max-width: 720px) {
   #page1 {
     padding: 10px;
     background-position: center;
@@ -558,6 +558,7 @@ body {
   }
   #page2 p {
     font-size:6vw;
+    margin-left: -1vw;
   }
   #page31 {
     padding: 0 10px 0 40px;
@@ -573,8 +574,9 @@ body {
   }
 
   #page3right {
-    width: 70%;
+    width: 80%;
     padding: 20px 10px;
+    margin-left: 35vw;
   }
 
   #page3right h2 {
@@ -600,16 +602,16 @@ body {
   }
 
   #page3mid h3 {
-    font-size: 9vw;
+    font-size: 7vw;
   }
 
   #page3mid h3 span {
-    font-size: 10vw;
+    font-size: 7vw;
   }
 
   #page3curve {
     padding: 50px 20px;
-    padding-bottom:50vw;
+    padding-bottom:10vw;
     min-height: 90vh;
     border-top-right-radius: 170px;
     border-bottom-right-radius: 170px;
@@ -626,7 +628,7 @@ body {
     margin-top: 1vw;
   }
   #page3curve #box2.box {
-    margin-top: 25vw;
+    margin-top: 1vw;
   }
   .curve {
     width: 80%;
@@ -701,10 +703,10 @@ body {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 720px) {
   .about-info-box {
     font-size: 5vw;
-    padding: 10px;
+    padding: 5px;
     text-align:center;
   }
 
