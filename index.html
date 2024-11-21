@@ -10,6 +10,17 @@
   <body>
     <div id="main">
       <div id="page1">
+        <img id="logoimg" src="./images/logonew.png" alt="" />
+        <div id="hidden-nav">
+          <button id="toggle-menu">...</button>
+          <div id="links-hidden" class="hidden">
+            <a href="https://g.co/kgs/juh5yDf" target="_blank">Contact Us</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw9TPtZ4GVAThKbtRScrEdu7NfwyBP6gtl4pspZbHU1brrNQ/closedform" target="_blank">Join Us</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBZtAQrTGXh57hlVIhP-wfLfKZY4WaX4LCqRie0vNlp8mHDg/viewform" target="_blank">Support Us</a>
+          </div>
+        </div>
+        
+        
         <div id="nav">
           <div id="logo"></div>
           <div id="links">
@@ -31,7 +42,6 @@
           </button>
         </a>
 
-        <img id="logoimg" src="./images/logonew.png" alt="" />
       </div>
       <div id="page2">
         <div id="blur">
@@ -154,4 +164,15 @@
       </div>
     </div>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleMenu = document.getElementById('toggle-menu');
+      const links = document.getElementById('links-hidden');
+  
+      toggleMenu.addEventListener('click', () => {
+        links.classList.toggle('show');
+      });
+    });
+  </script>
+  
 </html>

@@ -500,21 +500,79 @@ body {
 #social i {
   font-size: 2vw;
 }
+#hidden-nav{
+  display: none;
+}
+/* Hidden navigation container */
+#hidden-nav {
+  position: relative;
+  display: none;
+}
+
+/* Menu button styling */
+#toggle-menu {
+  font-size: 2vh;
+  margin-top: 2vh;
+  padding: 10px 30px;
+  background-color: #03d2ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Links container styling */
+#links-hidden {
+  position: absolute;
+  font-size: larger;
+  top: 100%;
+  left: 0;
+  background-color: #03d2ff;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+}
+
+/* Individual link styling */
+#links-hidden a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+#links-hidden a:hover {
+  background-color: #ddd;
+}
+
+/* Display links when the menu is toggled */
+#links-hidden.show {
+  display: flex;
+}
+
 @media (max-width: 1000px) {
   #page1 {
     padding: 10px;
     background-position: center;
     background-size: cover;
   }
+  /* Hidden navigation container */
+#hidden-nav {
+  position: relative;
+  display: inline-block;
+}
+
 
   #nav {
-    height: 8vh;
+    display: none;
+    height: 0;
     padding: 0 10px;
   }
 
   #logo {
     width: 20%;
-    height: auto;
+    height: 100vh;
   }
 
   #links a {
@@ -527,6 +585,10 @@ body {
     font-size: 10vw;
     font-weight: 800;
     margin-top: 10%;
+  }
+  #page1 img #logoimg{
+    height: 100vh;
+    margin-top: -100vw;
   }
 
   #page1 h2 {
