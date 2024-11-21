@@ -611,7 +611,7 @@ body {
 
   #page3curve {
     padding: 50px 20px;
-    padding-bottom:15vh;
+    padding-bottom: 10vh;
     min-height: 90vh;
     border-top-right-radius: 170px;
     border-bottom-right-radius: 170px;
@@ -628,7 +628,7 @@ body {
     margin-top: 1vw;
   }
   #page3curve #box2.box {
-    margin-top: 1vh;
+    margin-top: 5vh;
   }
   .curve {
     width: 80%;
