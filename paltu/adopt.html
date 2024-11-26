@@ -141,7 +141,7 @@
             document.getElementById('loader').style.display = 'relative'; // Show loader
             document.getElementById('main').style.display = 'none';
             try {
-                const response = await fetch('https://adoption-management.vercel.app/animals/animals/');
+                const response = await fetch('https://127.0.0.1:8001/animals/animals/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -167,7 +167,7 @@
             const animal = availableAnimals[index];
             const slideDiv = document.createElement('div');
             slideDiv.className = 'carousel-slide';
-            slideDiv.style.backgroundImage = `url('photos/${animal.photos}')`;
+            slideDiv.style.backgroundImage = `url('${animal.photos}')`;
 
             const overlayDiv = document.createElement('div');
             overlayDiv.className = 'carousel-overlay';
