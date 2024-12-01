@@ -121,7 +121,6 @@
     <div id="loader">
         <video autoplay muted loop playsinline id="bg-video">
             <source src="bg.mp4" type="video/mp4">
-            
         </video>
     </div>
     <div id="main">
@@ -141,7 +140,7 @@
             document.getElementById('loader').style.display = 'relative'; // Show loader
             document.getElementById('main').style.display = 'none';
             try {
-                const response = await fetch('https://127.0.0.1:8001/animals/animals/');
+                const response = await fetch('http://127.0.0.1:8000/animals/animals/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -182,13 +181,13 @@
         }
         async function fetchAnimalsbyID(tag_id) {
             try {
-                const response = await fetch(`https://adoption-management.vercel.app/animals/animals/${tag_id}`);
+                const response = await fetch(`http://127.0.0.1:8000/animals/animals/${tag_id}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const data = await response.json();
                 console.log(data);
-                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="photos/${data.photos}" hight=200px width=200px></img>`
+                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="${data.photos}" hight=200px width=200px></img>`
             } catch (error) {
                 console.error('Error fetching animal data:', error);
             }
