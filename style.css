@@ -216,6 +216,26 @@ body {
   font-weight: 800;
   line-height: 1.4;
 } */
+#page30 {
+  width: 100%;
+  min-height: 40vh;
+  position: relative;
+  background-color: #03d2ff;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  color: white;
+  font-size: x-large;
+}
+
+#page30 h1 {
+  font-size: 100px;
+  padding-bottom: 10px;
+}
+
+#page30 img {
+  width: 80vw;
+}
 
 #page31 {
   width: 100%;
