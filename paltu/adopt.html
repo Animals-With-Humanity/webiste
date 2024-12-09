@@ -187,7 +187,7 @@
                 }
                 const data = await response.json();
                 console.log(data);
-                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="${data.photos}" hight=200px width=200px></img>`
+                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="./photos/${data.photos}" hight=200px width=200px></img>`
             } catch (error) {
                 console.error('Error fetching animal data:', error);
             }
