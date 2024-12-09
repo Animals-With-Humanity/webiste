@@ -166,7 +166,7 @@
             const animal = availableAnimals[index];
             const slideDiv = document.createElement('div');
             slideDiv.className = 'carousel-slide';
-            slideDiv.style.backgroundImage = `url('${animal.photos}')`;
+            slideDiv.style.backgroundImage = `url('./photos/${animal.photos}')`;
 
             const overlayDiv = document.createElement('div');
             overlayDiv.className = 'carousel-overlay';
