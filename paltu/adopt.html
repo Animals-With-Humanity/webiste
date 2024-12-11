@@ -143,7 +143,7 @@
             document.getElementById('loader').style.display = 'relative'; // Show loader
             document.getElementById('main').style.display = 'none';
             try {
-                const response = await fetch('https://adoption-management.vercel.app/animals/animals/');
+                const response = await fetch('http://127.0.0.1:8000/animals/animals/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -176,25 +176,20 @@
             overlayDiv.innerHTML = `
                 <h2>Tag ID: ${animal.tag_id}</h2>
                 <p>Type: ${animal.animal_type}</p>
-                <button class="adopt-button" onclick="fetchAnimalsbyID('${animal.tag_id}')">Adopt Now</button>
+                <button class="adopt-button" onclick="redirectToFormWithTagID('${animal.tag_id}')">Adopt Now</button>
             `;
 
             slideDiv.appendChild(overlayDiv);
             slidesContainer.appendChild(slideDiv);
         }
-        async function fetchAnimalsbyID(tag_id) {
-            try {
-                const response = await fetch(`https://adoption-management.vercel.app/animals/animals/${tag_id}`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const data = await response.json();
-                console.log(data);
-                document.getElementById('animal-details').innerHTML = `<h2>Tag ID: ${data.tag_id}</h2> <img src ="./photos/${data.photos}" hight=200px width=200px></img>`
-            } catch (error) {
-                console.error('Error fetching animal data:', error);
-            }
-        }
+        function redirectToFormWithTagID(tag_id) {
+    // Construct the URL with the tag_id as a query parameter
+    const formUrl = `/paltu/form.html?tag_id=${tag_id}`;
+    
+    // Redirect to the form page
+    window.location.href = formUrl;
+}
+
         function nextSlide() {
             currentIndex = (currentIndex + 1) % availableAnimals.length;
             displayCarouselSlide(currentIndex);
