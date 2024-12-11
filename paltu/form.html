@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paltu Design</title>
+    <title>Paltu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,8 +16,8 @@
             background-color: #fff9f2
         }
         .img-right{
-            margin-left: 45%;
-            width: 45%;
+            margin-left: 70%;
+            width: 30%;
             height: 8vh;
         }
         .form-container {
@@ -45,8 +45,7 @@
         }
 
         .form-container input,
-        .form-container select,
-        .form-container button {
+        .form-container select {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -65,7 +64,15 @@
         }
 
         .form-container button:hover {
-            background: #0288d1;
+            background: #5f4230;
+            color: #fff9f2;
+        }
+        .form-container button{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 100px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -74,7 +81,7 @@
     <h1>Adoption Form</h1>
     <div class="form-container">
         <form id="paltuForm" action="">
-            <label>Please enter the following details -</label><br><br>
+            <label>Please enter the following details -</label><br>
             <label for="name">Apka Naam:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -99,6 +106,14 @@
             <label for="hometype">Home type:</label>
             <input type="text" id="hometype" name="hometype" placeholder="Flat, Duplex, or others" required>
 
+            <div style="display: flex;">
+            <label for="gov id" style="width: 50%;">Attach an image of your ID for verification:
+                <input type="file"style="width: 45%;">
+            </label>
+            <label for="photo" style="width: 50%;">Attach a passport size photo: <br>
+                <input type="file" style="width: 45%;">
+            </label>
+            </div>
             <button type="submit">Submit</button>
         </form>
     </div>
