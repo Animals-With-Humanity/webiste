@@ -69,7 +69,7 @@
     </style>
 </head>
 <body>
-    <img class="img-right" src="./photos/top-right.png" alt="">
+    <img class="img-right" src="./top-right.png" alt="">
     <h1>Adoption Form</h1>
     <div class="form-container">
         <form id="paltuForm" action="">
@@ -109,7 +109,7 @@
         }
         document.getElementById('paltuForm').addEventListener('submit', async function(event) {
             event.preventDefault();
-            const tagId = getQueryParam('tag_id') || 0;
+            const tagId = getQueryParam('tag_id') || null;
             const formData = {
                 tag_id: parseInt(tagId, 10),
                 name: document.getElementById('name').value,
