@@ -108,10 +108,10 @@
 
             <div style="display: flex;">
             <label for="gov id" style="width: 50%;">Attach an image of your ID for verification:
-                <input type="file"style="width: 45%;">
+                <input id="adopter_doc" type="file"style="width: 45%;">
             </label>
             <label for="photo" style="width: 50%;">Attach a passport size photo: <br>
-                <input type="file" style="width: 45%;">
+                <input id="adopter_image" type="file" style="width: 45%;">
             </label>
             </div>
             <button type="submit">Submit</button>
@@ -126,36 +126,37 @@
         document.getElementById('paltuForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const tagId = getQueryParam('tag_id') || null;
-            const formData = {
-                tag_id: parseInt(tagId, 10),
-                name: document.getElementById('name').value,
-                contact: document.getElementById('contact').value,
-                whatsapp: document.getElementById('whatsapp').value,
-                address: document.getElementById('address').value,
-                occupation: document.getElementById('occupation').value,
-                pets: document.getElementById('pets').value === 'true',
-                hometype: document.getElementById('hometype').value
-            };
+            // Create a FormData object
+            const formData = new FormData();
+            formData.append('tag_id', parseInt(tagId, 10));
+            formData.append('name', document.getElementById('name').value);
+            formData.append('contact', document.getElementById('contact').value);
+            formData.append('whatsapp', document.getElementById('whatsapp').value);
+            formData.append('address', document.getElementById('address').value);
+            formData.append('occupation', document.getElementById('occupation').value);
+            formData.append('pets', document.getElementById('pets').value === 'true');
+            formData.append('hometype', document.getElementById('hometype').value);
+            formData.append('adopter_image', document.getElementById('adopter_image').files[0]); // File input
+            formData.append('adopter_doc', document.getElementById('adopter_doc').files[0]);
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/applications/applications/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
+        const response = await fetch('http://127.0.0.1:8000/applications/applications/', {
+            method: 'POST',
+            body: formData // Send as multipart/form-data
+        });
 
-                if (response.ok) {
-                    alert('Form submitted successfully!');
-                    window.location.href = "/paltu/adopt.html"  
-                } else {
-                    alert('Failed to submit form. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred while submitting the form.');
-            }
+        if (response.ok) {
+            alert('Form submitted successfully!');
+            window.location.href = "/paltu/adopt.html"; // Redirect after successful submission
+        } else {
+            const errorResponse = await response.json();
+            alert(`Failed to submit form: ${errorResponse.detail}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while submitting the form.');
+    }
+
         });
     </script>
 </body>
