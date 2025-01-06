@@ -69,8 +69,11 @@ body {
   color: #ffffff;
   background: #000;
 }
-#links a:nth-child(2) {
+#links a:nth-child(3) {
   border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+#links a:nth-child(1) {
   border-right: 2px solid black;
 }
 #page1 h1 {
