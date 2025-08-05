@@ -472,6 +472,44 @@ body {
   font-size: 1.3vw;
   padding-top: 10px;
 }
+
+/* NEW: Contact section styles (minimal, consistent with existing theme) */
+#contact {
+  width: 100%;
+  background-color: #03d2ff;
+  color: white;
+  padding: 40px 50px;
+}
+#contact .contact-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#contact h1 {
+  text-transform: uppercase;
+  font-size: 10vw;
+  font-weight: 800;
+  color: #fbf309;
+  line-height: 1;
+}
+#contact .contact-details {
+  font-size: 1.5vw;
+  font-weight: 700;
+  max-width: 900px;
+}
+#contact .contact-details a {
+  color: inherit;          /* keep same white as surrounding text */
+  background: transparent; /* remove white pill */
+  padding: 0;              /* no extra spacing */
+  border-radius: 0;
+  text-decoration: none;   /* clean look by default */
+}
+#contact .contact-details a:hover,
+#contact .contact-details a:focus {
+  text-decoration: underline; /* subtle affordance on hover/focus */
+}
+
 #page4 {
   width: 100%;
   /* height: 100vh; */
@@ -764,6 +802,18 @@ body {
   #camp p {
     width: 65%;
     font-size: 3.3vw;
+  }
+
+  /* NEW: Contact section responsive tweaks */
+  #contact {
+    padding: 15px 10px;
+  }
+  #contact h1 {
+    font-size: 16vw;
+    text-align: left;
+  }
+  #contact .contact-details {
+    font-size: 5vw;
   }
 
   #fot {
